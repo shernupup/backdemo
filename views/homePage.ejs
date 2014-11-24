@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <title ><%= title %></title>
+    <link href="stylesheets/bootstrap.css" rel="stylesheet"  media="screen">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"  media="screen">
+    <meta name="viewport" content="width=device-width,initial=scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">shen</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active" ><a href="/home">实时走势</a></li>
+                    <li><a href="/home/holiday">节假日管理</a></li>
+                    <li><a href="/home/ect">...</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row-fluid" >
+        <div class="span12">
+            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>新增</th>
+                    <th>活跃</th>
+                    <th>启动</th>
+                    <th>留存</th>
+                    <th>累计</th>
+                </tr>
+                <tr id="todayFatherNode">
+                    <th>今日</th>
+                    <th id="todayNewAdd"></th>
+                    <th id="todayActive"></th>
+                    <th id="todayOpenTimes"></th>
+                    <th id="todayRemain"></th>
+                    <th id="todayAll"></th>
+                </tr>
+                <tr id="yesterdayFatherNode">
+                    <th>昨日</th>
+                    <th id="yesterdayNewAdd"></th>
+                    <th id="yesterdayActive"></th>
+                    <th id="yesterdayOpenTimes"></th>
+                    <th id="yesterdayRemain"></th>
+                    <th id="yesterdayAll"></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span6">
+            <a id="submit1" class="btn btn-mini btn-primary">今日</a>
+            <a id="submit2" class="btn btn-mini btn-primary">昨日</a>
+            <input type="text" class="span3" placeholder="140306" id="channelDate">
+            <a id="submit3" class="btn btn-mini btn-primary">确认</a>
+        </div>
+    </div>
+    <div class="row-fluid" >
+        <div class="span6">
+            <div class="span12" id="containerData9" style="min-width:600px;height:400px "></div>
+        </div>
+        <div class="span6">
+            <div class="span12" id="containerData10" style="min-width:600px;height:400px "></div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+      <div class="span6">
+          <select id="channel">
+          </select>
+          <select id="version">
+          </select>
+          <a id="submit4" class="btn btn-mini btn-primary">确认</a>
+      </div>
+    </div>
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData1" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData2" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData3" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData4" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData5" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData6" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData7" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+<hr>
+
+<div class="container-fluid" >
+    <div class="row-fluid" >
+        <div class="span12">
+            <div class="span12" id="containerData8" style="min-width:1000px;height:400px "></div>
+        </div><!--/span12-->
+    </div>
+</div>
+<hr>
+
+
+<script src="javascripts/jquery-1.11.1.min.js"></script>
+<script src="javascripts/bootstrap.js"> </script>
+<script src="javascripts/html5shiv.js"></script>
+<script src="javascripts/highChartsJs/highcharts.js"></script>
+
+
+<script>
+var chartOneGetData=function(){
+    $.ajax({
+        type:'post',
+        url:"/getChartOneTotal",
+        dataType:'json',
+        success:function(data){
+            var all=["todayAll","yesterdayAll"];
+            var allDate=[data.todayAll,data.yesterdayAll];
+            for(var i =0;i<2;i++){
+                $('#'+all[i]).html(allDate[i]);
+            }
+
+            $.ajax({
+                data:{"todayAll":allDate[0],"yesterdayAll":allDate[1]},
+                type:'post',
+                url:"/getChartOneData",
+                dataType:'json',
+                success:function(data){
+                    var NodesOne=[data.todayNewAdd,data.todayActive,data.todayOpenTimes,data.todayRemain];
+                    var NodesTwo=[data.yesterdayNewAdd,data.yesterdayActive,data.yesterdayOpenTimes,data.yesterdayRemain];
+                    var fatherOne = document.getElementById("todayFatherNode").childNodes;
+                    var fatherTwo = document.getElementById("yesterdayFatherNode").childNodes;
+                    var father=[fatherOne,fatherTwo];
+                    var node=[NodesOne,NodesTwo];
+                    var getData = function(father,node){
+                        for(var i=2;i<10;i++){
+                            if(i%2!==0){
+                                father[i].innerHTML=node[(i-1)/2-1]
+                            }
+                        }
+                    };
+                    for(var i =0;i<2;i++){
+                        getData(father[i],node[i]);
+                    }
+                }
+            });
+
+        }
+    });
+
+}
+var loadVersion=function() {
+    $.ajax({
+        url: '/getVersion',
+        type: 'POST',
+        dataType: 'JSON',
+        success: function(data) {
+            $("#version").empty();
+
+            var versionSelect=[];
+            for(var i=0;i<data.version.length;i++){
+                versionSelect.push(data.version[i]);
+            }
+            versionSelect.push('ALL');
+
+            for(var i=0;i<versionSelect.length;i++){
+                $("<option value='" + versionSelect[i] + "'>" + versionSelect[i] + "</option>").appendTo($("#version"));
+            }
+        }
+    });
+}
+var loadChannel=function(){
+    $.ajax({
+        type:'post',
+        url:"/getChannel",
+        dataType:'json',
+        success:function(data){
+            loadVersion();
+            $("#channel").empty();
+            var channelSelect= data.channel;
+            channelSelect['ios'] =  'ios平台';
+            channelSelect['android'] =  'android平台';
+            channelSelect['ALL']=  'ALL'
+            for(var i in channelSelect){
+                $("<option value='"+i+"'>" + channelSelect[i]+ "</option>").appendTo($("#channel"));
+            }
+        }
+    });
+}
+var chartTwoGetData=function(time){
+    if(time==='today'){
+        $.ajax({
+            type:'post',
+            url:"/getChartTwoChannelAndVersion",
+            dataType:'json',
+            success:function(channelAndVersion){
+                var channelLength=channelAndVersion.channel.length;
+                var versionLength=channelAndVersion.version.length;
+                var versionInfo=channelAndVersion.version;
+                var channelInfo=channelAndVersion.channel;
+
+                $.ajax({
+                    traditional: "true",
+                    data:{"channelLength":channelLength,"versionLength":versionLength,"versionInfo":versionInfo},
+                    type:'post',
+                    url:"/getChartTwoTodayData",
+                    dataType:'json',
+                    success:function(channelAndVersionData){
+                        showBar(containerData9,channelAndVersionData.channel,'渠道',channelInfo);
+                        showBar(containerData10,channelAndVersionData.version,'版本',versionInfo);
+                    }
+                });
+            }
+        });
+    }
+    if(time==='yesterday'){
+        $.ajax({
+            type:'post',
+            url:"/getChartTwoChannelAndVersion",
+            dataType:'json',
+            success:function(channelAndVersion){
+                var channelLength=channelAndVersion.channel.length;
+                var versionLength=channelAndVersion.version.length;
+                var versionInfo=channelAndVersion.version;
+                var channelInfo=channelAndVersion.channel;
+                $.ajax({
+                    traditional: "true",
+                    data:{"channelLength":channelLength,"versionLength":versionLength,"versionInfo":versionInfo},
+                    type:'post',
+                    url:"/getChartTwoYesterdayData",
+                    dataType:'json',
+                    success:function(channelAndVersionData){
+                        showBar(containerData9,channelAndVersionData.channel,'渠道',channelInfo);
+                        showBar(containerData10,channelAndVersionData.version,'版本',versionInfo);
+                    }
+                });
+            }
+        });
+    }
+}
+var chartTwoSelectTimeData = function(){
+    $.ajax({
+        type:'post',
+        url:"/getChartTwoChannelAndVersion",
+        dataType:'json',
+        success:function(channelAndVersion){
+            var channelLength=channelAndVersion.channel.length;
+            var versionLength=channelAndVersion.version.length;
+            var versionInfo=channelAndVersion.version;
+            var channelInfo=channelAndVersion.channel;
+            var dateSelectChannel=$("#channelDate").val();
+            $.ajax({
+                traditional: "true",
+                type:'post',
+                url:"/getChartTwoSelectTimeData",
+                data:{"channelLength":channelLength,"versionLength":versionLength,"versionInfo":versionInfo,"channelDate":dateSelectChannel},
+                dataType:'json',
+                success:function(channelAndVersionData){
+                    showBar(containerData9,channelAndVersionData.channel,'渠道',channelInfo);
+                    showBar(containerData10,channelAndVersionData.version,'版本',versionInfo);
+                }
+            });
+        }
+    });
+}
+var chartThreeGetData=function(){
+    var channel= $('#channel').val();
+    var version=$('#version').val()
+    $.ajax({
+        type:'post',
+        url:"/getChartThreeBySelectData",
+        dataType:'json',
+        data:{"channel":channel,"version":version},
+        success:function(data){
+            var container=['containerData1','containerData2','containerData3','containerData4','containerData5','containerData6','containerData7','containerData8'];
+            var whichChart=['newAdd','active','active7','openTimes','remain','remain7','remain30','upgrade'];
+            var title=['新增','活跃','7天活跃','启动','次日留存','7日留存','30日留存','升级']
+            var unit=['人','人','人','次','人','人','人','次'];
+            for(var i=0;i<8;i++){
+                var chartInfo= whichChart[i];
+                showChart(container[i],data[chartInfo],title[i],unit[i]);
+            }
+        }
+    });
+}
+
+//页面加载流程
+chartOneGetData()//获取图表1的数据
+loadChannel();//加载图表3和图表2的渠道和版本信息
+chartTwoGetData('today');//图表2默认情况下加载今日的数据
+$('#submit1').bind('click', function (event) {//点击今日，加载图表2的今日数据
+    chartTwoGetData('today');
+    event.preventDefault();
+});
+
+$('#submit2').bind('click', function (event) {//点击昨日，加载图表2的昨日数据
+    chartTwoGetData('yesterday');
+    event.preventDefault();
+});
+
+chartThreeGetData();//获取图表三的数据，默认情况下为部分渠道不分版本的数据
+$('#submit4').bind('click', function (event) {//根据下拉菜单获取相应渠道版本的图表3的数据
+    chartThreeGetData();
+    event.preventDefault();
+});
+
+$('#submit3').bind('click', function (event) {
+    chartTwoSelectTimeData();
+    event.preventDefault();
+});
+
+function showChart(container,yset,textName,suffix){
+    var chart = new Highcharts.Chart({
+        chart:{
+            renderTo: container,//'字符串''container'
+            type:'line'
+        },
+        title: {
+            text: textName,//'字符串''新增'
+            x: -20 //center
+        },
+        subtitle: {
+            text: '<%= title %>',
+            x: -20
+        },
+        xAxis: {
+                categories: ['1', '2','3','4','5','6','7','8','9','10','11','12','13','14','15','16', '17','18','19','20','21','22','23','24','25','26','27','28','29','30']
+               },
+        yAxis: {
+            title: {
+                enabled:false
+            },
+              plotLines: [{
+                value: 0,
+                width: 0,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: suffix//'字符串'‘人’
+        },
+        legend: {
+            enabled:false
+        },
+        series: [{
+            name:textName,
+            data: yset//数字型的数组
+        }]
+    });
+}
+
+
+function showBar(container,yset,textName,channelInfo) {
+    var bar = new Highcharts.Chart({
+        chart: {
+            renderTo: container,
+            type: 'bar'
+        },
+        title: {
+            text: textName
+        },
+        subtitle: {
+            text: 'iweek'
+        },
+        xAxis: {
+            categories: channelInfo,
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '新增人数(人)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: '次'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            enabled:false
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '新增',
+            data: yset
+        }]
+    });
+
+}
+</script>
+
+</body>
+
+</html>
+
