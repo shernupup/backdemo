@@ -4,10 +4,10 @@
 //
 var longinConfig =
 {
-	'host'     : '127.0.0.1',
+	'host'     : 'shernshern.mysql.rds.aliyuncs.com',
 	'port'     : '3306',
-	'user'     : 'shen',
-	'password' : '123321',
+	'user'     : 'shern',
+	'password' : '13860420400w',
 	'database' : 'analysis'
 }
 exports.longinConfig = longinConfig;
@@ -24,10 +24,10 @@ exports.longinConfig = longinConfig;
 
 var iweekDataConfig =
 {
-	'host'     : '127.0.0.1',
+	'host'     : 'shernshern.mysql.rds.aliyuncs.com',
 	'port'     : '3306',
-	'user'     : 'shen',
-	'password' : '123321',
+	'user'     : 'shern',
+	'password' : '13860420400w',
 	'database' : 'analysis'
 }
 exports.iweekDataConfig = iweekDataConfig;
