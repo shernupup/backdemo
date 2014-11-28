@@ -260,11 +260,10 @@ var loadVersion=function() {
             for(var i=0;i<data.version.length;i++){
                 versionSelect.push(data.version[i]);
             }
-            versionSelect.push('ALL');
-
             for(var i=0;i<versionSelect.length;i++){
                 $("<option value='" + versionSelect[i] + "'>" + versionSelect[i] + "</option>").appendTo($("#version"));
             }
+            $("<option value='"+'ALL'+"' selected='"+'selected'+"'>" + 'ALL'+ "</option>").appendTo($("#version"));
         }
     });
 }
@@ -279,10 +278,10 @@ var loadChannel=function(){
             var channelSelect= data.channel;
             channelSelect['ios'] =  'ios平台';
             channelSelect['android'] =  'android平台';
-            channelSelect['ALL']=  'ALL'
             for(var i in channelSelect){
                 $("<option value='"+i+"'>" + channelSelect[i]+ "</option>").appendTo($("#channel"));
             }
+            $("<option value='"+'ALL'+"' selected='"+'selected'+"'>" + 'ALL'+ "</option>").appendTo($("#channel"));
         }
     });
 }
