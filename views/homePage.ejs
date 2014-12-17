@@ -23,7 +23,7 @@
             }
         }
     </style>
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"  media="screen">
+    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet"  media="screen">
     <meta name="viewport" content="width=device-width,initial=scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -374,9 +374,11 @@ var chartThreeGetData=function(){
             var whichChart=['newAdd','active','active7','openTimes','remain','remain7','remain30','upgrade'];
             var title=['新增','活跃','7天活跃','启动','次日留存','7日留存','30日留存','升级']
             var unit=['人','人','人','次','人','人','人','次'];
+
+            console.log(data['time']);
             for(var i=0;i<8;i++){
                 var chartInfo= whichChart[i];
-                showChart(container[i],data[chartInfo],title[i],unit[i]);
+                showChart(container[i],data[chartInfo],title[i],unit[i],data['time']);
             }
         }
     });
@@ -407,7 +409,7 @@ $('#submit3').bind('click', function (event) {
     event.preventDefault();
 });
 
-function showChart(container,yset,textName,suffix){
+function showChart(container,yset,textName,suffix,xset){
     var chart = new Highcharts.Chart({
         chart:{
             renderTo: container,//'字符串''container'
@@ -422,7 +424,7 @@ function showChart(container,yset,textName,suffix){
             x: -20
         },
         xAxis: {
-                categories: ['1', '2','3','4','5','6','7','8','9','10','11','12','13','14','15','16', '17','18','19','20','21','22','23','24','25','26','27','28','29','30']
+                categories: xset
                },
         yAxis: {
             title: {
