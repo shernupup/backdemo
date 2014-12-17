@@ -24,7 +24,6 @@ router.post('/', function(req, res) {
 
 	var transferData=function (tableChannelAll,selectColChannelAll,selectConditionChannelAll){
 		database.IweekDataMysqlChar(tableChannelAll,selectColChannelAll,selectConditionChannelAll,function(data){
-			//console.log(data);
 		var chartKindsArr=["new_add","active","active_7","open_times","remain","remain_7","remain_30","update"];
         var time = [];
 		var chartKinds={};
@@ -49,7 +48,7 @@ router.post('/', function(req, res) {
                 time.push(dateDisplay);
             }
         }
-        console.log(time);
+
 
 
 		for(var i=0;i<data.length;i++){

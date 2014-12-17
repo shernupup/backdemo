@@ -71,9 +71,6 @@ router.post('/', function(req, res) {
 			res.send({"channel":channelArr,"version":newAddYesterdayVersion});
 
 		});
-	})
-})
-
-
-
+	});
+});
 module.exports = router;
